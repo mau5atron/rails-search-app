@@ -1,0 +1,17 @@
+<h1>Jukebox</h1>
+
+<%= form_tag site_search_path do %>
+	<%= search_field_tag :term  %>
+	<%= submit_tag "Search" %>
+
+<% end %>
+
+<%= params %>
+
+<hr>
+<% if !@artists.nil? %>
+<%# if artists is not empty  %>
+	<% @artists.each do |artist| %>
+	<div><%= artist.name %></div>
+	<% end %>
+<% end %>
