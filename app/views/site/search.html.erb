@@ -6,12 +6,30 @@
 
 <% end %>
 
-<%= params %>
+<%#= params %>
 
 <hr>
-<% if !@artists.nil? %>
+<% if @artists %>
 <%# if artists is not empty  %>
 	<% @artists.each do |artist| %>
-	<div><%= artist.name %></div>
+		<div>
+			<header><%= artist.name %></header>
+			<p>Albums:</p>
+			<ul>
+				<% artist.albums.each do |album| %>
+					<li><%= album.name %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+<% end %>
+
+<% if @albums %>
+<%# if artists is not empty  %>
+	<% @albums.each do |album| %>
+		<div>
+			<header><%= album.name %></header>
+			<p>Artist: <%= album.artist.name %></p>
+		</div>
 	<% end %>
 <% end %>
